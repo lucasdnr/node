@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 import classes from "./NewPost.module.css";
 
 function NewPost() {
-   function changeBodyHandler(event) {
-    // event.target.value;
+  const [enteredBody, setEnteredBody] = useState("");
+  // stateData[0] // current value
+  // stateData[1] // state updating function
+
+  function changeBodyHandler(event) {
+    setEnteredBody(event.target.value);
   }
 
   return (
@@ -11,7 +17,6 @@ function NewPost() {
         <label htmlFor="body">Text</label>
         <textarea id="body" required rows={3} onKeyDown={changeBodyHandler} />
       </p>
-      <p></p>
       <p>
         <label htmlFor="name">Your name</label>
         <input type="text" id="name" required />
