@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./NewPost.module.css";
 
-function NewPost({ onCancel }) {
+function NewPost({ onCancel, onAddPost }) {
   // const [enteredBody, setEnteredBody] = useState("");
   // // stateData[0] // current value
   // // stateData[1] // state updating function
@@ -23,6 +23,8 @@ function NewPost({ onCancel }) {
       body: enteredBody,
       author: enteredAuthor,
     };
+    // add data
+    onAddPost(postData);
     // call on cancel to close modal
     onCancel();
   }
