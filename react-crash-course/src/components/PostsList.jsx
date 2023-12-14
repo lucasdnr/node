@@ -24,29 +24,34 @@ function PostsList() {
   //   fetchPosts();
   // }, []);
 
-  function addPostHandler(postData) {
-    fetch("http://localhost:8080/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  // function addPostHandler(postData) {
+  //   fetch("http://localhost:8080/posts", {
+  //     method: "POST",
+  //     body: JSON.stringify(postData),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
 
-    // when we want to update a state and the new state is based on the previous state
-    // we need to pass a function
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-    // This other solution works but is not ideal, possible issues with multiple
-    // pending state updates
-    // setPosts([postData, ...posts]);
-  }
+  //   // when we want to update a state and the new state is based on the previous state
+  //   // we need to pass a function
+  //   setPosts((existingPosts) => [postData, ...existingPosts]);
+  //   // This other solution works but is not ideal, possible issues with multiple
+  //   // pending state updates
+  //   // setPosts([postData, ...posts]);
+  // }
 
   return (
     <>
       {posts.length > 0 && (
         <ul className={classes.posts}>
           {posts.map((post) => (
-            <Post key={post.body} author={post.author} body={post.body} />
+            <Post
+              key={post.id}
+              id={post.id}
+              author={post.author}
+              body={post.body}
+            />
           ))}
         </ul>
       )}
