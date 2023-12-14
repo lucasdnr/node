@@ -13,10 +13,11 @@ function App() {
   });
 
   function handleChange(inputIdentifier, newValue) {
+    // + convert to number
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifier]: newValue,
+        [inputIdentifier]: +newValue,
       };
     });
   }
